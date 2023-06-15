@@ -53,3 +53,14 @@ select e.employee_id ,e.first_name,e.last_name,e.salary,m.first_name,m.last_name
 from employees e
 join employees m on e.manager_id=m.employee_id
 where e.salary>m.salary;
+
+--task15
+
+/*Generate a report that displays the number of employees in each
+department, sorted in ascending order of the department name.*/
+
+select count(e.employee_id) as emp_counts, d.department_name
+from employees e 
+join departments d on e.department_id=d.department_id
+group by d.department_name
+order by department_name ;
