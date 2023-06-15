@@ -109,3 +109,16 @@ select min(e.salary) as min_salary, max(e.salary) as max_salary, avg(e.salary)  
 from employees e 
 join jobs j on e.job_id=j.job_id
 group by j.job_title;
+
+
+--task 20
+
+/*Create a report that lists all employees who have the same job title and
+the same manager*/
+
+select e1.employee_id,e1.first_name, e1.last_name , j.job_title,e1.manager_id
+from employees e1
+join jobs j on e1.job_id=j.job_id
+join employees e2 on e1.job_id=e2.job_id and e1.manager_id=e2.manager_id
+where e1.employee_id!=e2.employee_id
+order by j.job_title;
