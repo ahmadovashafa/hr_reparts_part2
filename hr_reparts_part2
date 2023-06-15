@@ -15,3 +15,18 @@ select max(e.salary) as max_salary, min(e.salary) as min_salary, round(avg(e.sal
 from employees e
 join departments d on e.department_id=d.department_id
 group by department_name;
+
+--task 11
+
+/*Generate a report that lists all employees who have been with the
+company for more than 10 years*/
+
+----
+
+
+--task 12
+/*Task 12: Create a report that displays the number of employees in each job title.*/
+select count(*) as emp_counts ,j.job_title
+from employees e 
+join jobs j on e.job_id=j.job_id
+group by j.job_title;
