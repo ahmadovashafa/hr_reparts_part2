@@ -4,3 +4,14 @@ from employees e
 join departments d on e.department_id=d.department_id
 group by d.department_name
 order by emp_counts desc;
+
+
+--task10
+
+/* Create a report that shows the minimum, maximum, and average salary
+for each department*/
+
+select max(e.salary) as max_salary, min(e.salary) as min_salary, round(avg(e.salary),1)as avg_salary, d.department_name
+from employees e
+join departments d on e.department_id=d.department_id
+group by department_name;
