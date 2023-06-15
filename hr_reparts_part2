@@ -30,3 +30,15 @@ select count(*) as emp_counts ,j.job_title
 from employees e 
 join jobs j on e.job_id=j.job_id
 group by j.job_title;
+
+
+--task13
+
+/*Generate a report that shows the total salary for each manager, including
+their names and department names.*/
+
+select sum(e.salary),m.first_name,m.last_name,d.department_name
+from employees e
+join departments d on e.department_id=d.department_id
+join employees m on m.employee_id=e.manager_id
+group by m.first_name,m.last_name,d.department_name;
